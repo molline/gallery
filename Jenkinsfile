@@ -17,9 +17,7 @@ pipeline{
         }
         stage('Build'){
             steps{
-                sh 'yarn'
                 sh 'node server.js'
-                
             }
         }
         stage('Deploy to render'){
