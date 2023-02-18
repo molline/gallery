@@ -14,15 +14,16 @@ pipeline{
                 sh 'npm install'
             }
         }
-        stage('Success'){
-            steps{
-                echo 'pipeline successful'
-            }
-        }
         stage('Build'){
             steps{
-                echo 'Building'
+                sh 'node server.js'
             }
         }
+        stage('Deploy to render'){
+            steps{
+                echo 'Deploying to render'
+            }
+        }
+        
     }
 }
