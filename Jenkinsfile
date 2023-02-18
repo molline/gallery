@@ -12,11 +12,14 @@ pipeline{
         stage('Software Check'){
             steps{
                 sh 'npm install'
+                sh 'npm install --save express'
             }
         }
         stage('Build'){
             steps{
+                sh 'yarn'
                 sh 'node server.js'
+                
             }
         }
         stage('Deploy to render'){
