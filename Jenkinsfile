@@ -11,8 +11,9 @@ pipeline{
         }
         stage('Software Check'){
             steps{
-                sh 'npm install'
-                sh 'npm install --save express'
+                sh 'npm install' //install npm package
+                sh 'npm install --save express'// install express
+                sh 'npm install --global yarn'// install yarn
             }
         }
         stage('Build'){
