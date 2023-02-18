@@ -1,19 +1,25 @@
 pipeline{
     agent any
     stages{
-        stage('clone repository'){
+        stage('Clone repository'){
             steps{
                 git 'https://github.com/molline/gallery'
             }
         }
         stage('Software Check'){
-            sh 'npm install'
+            steps{
+                sh 'npm install'
+            }
         }
         stage('Success'){
-            echo 'pipeline successful'
+            steps{
+                echo 'pipeline successful'
+            }
         }
         stage('Build'){
-            echo 'Building'
+            steps{
+                echo 'Building'
+            }
         }
     }
 }
