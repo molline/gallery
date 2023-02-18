@@ -12,5 +12,8 @@ pipeline{
         stage('Success'){
             echo 'pipeline successful'
         }
+        stage('Build'){
+            echo 'Building'
+        }
     }
 }
