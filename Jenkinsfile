@@ -12,8 +12,8 @@ pipeline{
         stage('Software Check'){
             steps{
                 sh 'npm install' //install npm package
-                sh 'npm install --save express'// install express
-                sh 'npm install --global yarn'// install yarn   
+                sh 'npm install express'// install express
+                sh 'npm install yarn'// install yarn   
                 sh 'npm install dotenv'
             }
         }
@@ -23,6 +23,11 @@ pipeline{
                 //sh 'node server.js'
             }
         }
+        stage('Test'){
+            steps{
+                sh 'npm test'
+            }
+        }
         stage('Deploy to render'){
             steps{
                 httpRequest httpMode: 'POST', responseHandle: 'NONE', url: 'https://api.render.com/deploy/srv-cfodbtirrk0fd9oebiag?key=I6jcbHcD5DE', wrapAsMultipart: false
@@ -30,13 +35,7 @@ pipeline{
                 slackSend channel: 'molline-ip1', message: "For the ${env.JOB_NAME} build ${env.BUILD_ID}  the site is live at https://gallery-gt7q.onrender.com"
 
             }
-        }
-        stage('Test'){
-            steps{
-                sh 'npm test'
-            }
-        }
-        
+        } 
     }
     post{
         failure{
