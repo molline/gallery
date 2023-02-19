@@ -40,7 +40,7 @@ pipeline{
         failure{
             emailext to: 'mollinmolline@gmail.com',
             subject: 'Jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME} Failure', 
-            body: '${currentBuild.currentResult}: Job ${env.JOB_NAME} has and failed more Info can be found here: ${env.BUILD_URL}', 
+            body: '${currentBuild.currentResult}: Job ${env.JOB_NAME} has and failed more Info can be found here: ${env.BUILD_URL}'
         }
     }
 }
