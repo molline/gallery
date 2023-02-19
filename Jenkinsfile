@@ -14,7 +14,7 @@ pipeline{
                 sh 'npm install' //install npm package
                 sh 'npm install --save express'// install express
                 sh 'npm install --global yarn'// install yarn   
-                sh 'npm instll dotenv'
+                sh 'npm install dotenv'
             }
         }
         stage('Build'){
